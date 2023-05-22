@@ -3,8 +3,9 @@ import { User } from "./models";
 import { connectDB } from "./db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+require("dotenv").config();
 
-const jwtSecret = "secretjwt";
+export const jwtSecret = "secretjwt";
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -60,16 +61,14 @@ export const loginUser = async (req: Request, res: Response) => {
     const db = await connectDB();
     const collection = db.collection("Users");
     const user = await collection.findOne({ Username });
-    // if (!user || !(await bcrypt.compare(Password, user.Password))) {
-    //   return res.status(401).json({ error: "Invalid login details" });
-    // }
-    if (!user || user.Password !== Password) {
+    if (!user || !(await bcrypt.compare(Password, user.Password))) {
       return res.status(401).json({ error: "Invalid login details" });
     }
 
     const token = jwt.sign(
       { UserID: user.UserID, Username: user.Username },
-      jwtSecret
+      jwtSecret,
+      { expiresIn: "1h" }
     );
     res.json({ user, token });
   } catch (error) {
