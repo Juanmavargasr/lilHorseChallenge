@@ -37,7 +37,7 @@ Before than start, be sure you have installed MongoDB, if you don't, click [here
 ### Set up database: MongoDB
 
 1.  Create a database in mongoDB. database's name must to be named "lilHorse".
-2.  Create a collection in the database you just created, the name for the collection is users.
+2.  Create a collection in the database you just created, the name for the collection is Users.
 3.  Copy from mongoDB the connection string.
 4.  Open the file called .env and paste the string front of MONGO_URI, replace the word "localhost" for the localhost IP. The result should be similar to: "MONGO_URI=mongodb://127.0.0.1:27017".
 
