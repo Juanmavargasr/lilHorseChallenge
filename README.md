@@ -50,7 +50,7 @@ Now the project is running in the localhost. Be sure of this going to the follow
 
 ### Test the app with Postman
 
-For testing the app, we will use postman. Create an user if you dont have any and read the official documents for know how to use this.
+For testing the app, we will use postman. Create an user if you dont have any and read the official documents for know how to use this. If you use a postman app desktop you wouldn't need install any other app, if you use postman web, you must intall a postman agent for connect your localhost with webpostman. Click [here](https://www.postman.com/downloads/postman-agent/) to download postman agent. 
 
 1.  REGISTER (Public Endpoint): For test http://127.0.0.1:3000/api/register be sure of send the **POST** from body in JSON format. UserID, Username and a Password are required. You can't create a Username that already exist.
 
